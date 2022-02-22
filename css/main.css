@@ -1,0 +1,38 @@
+html{overflow: hidden;}
+html, body{width: 100%; height: 100%;}
+body{ font-family: 'Gideon Roman', cursive; }
+.main-container{ width: 100%; height: 100%; }
+.content{ width: 100%; height: 100%; position: relative; background-color: lightpink; overflow: hidden}
+
+.content > h1{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+
+    font-size: 20em;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
+
+}
+.mountain{ background-image: url("../img/mountain.jpg");  }
+.lake{ background-image: url("../img/lake.jpg") }
+.island{  background-image: url("../img/island.jpg"); }
+.hawaii{ background-image: url("../img/hawaii.jpg") }
+.desert{ background-image: url("../img/desert.jpg") }
+.winter{ background-image: url("../img/winter.jpg") }
+.content:nth-child(even){background-color: deeppink; overflow: hidden}
+
+
+
+.mountain-wrap{ max-width: 1440px; margin: 0 auto; position: relative; }
+.mountain-container{ display: flex; justify-content: center; margin-top: 10%; }
+.mountain-container h1{ font-weight: bolder; font-size: 7em; }
+
+.menu-trigger { float: right; margin-right: 30px; margin-top: 30px;  position: relative; width: 50px; height: 44px; }
+.menu-trigger,
+.menu-trigger span { display: inline-block; transition: all .4s; box-sizing: border-box; }
+.menu-trigger span { left: 0; width: 100%; height: 4px; background-color: #fff; border-radius: 4px; }
+
+.menu-trigger.active-1 span:nth-of-type(1) { -webkit-transform: translateY(13px) rotate(-45deg); transform: translateY(13px) rotate(-45deg); }
+.menu-trigger.active-1 span:nth-of-type(2) { opacity: 0; }
+.menu-trigger.active-1 span:nth-of-type(3) { -webkit-transform: translateY(-20px) rotate(45deg); transform: translateY(-20px) rotate(45deg); }
