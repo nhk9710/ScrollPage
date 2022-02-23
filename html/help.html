@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help the nature</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="all-container">
+  <div class="help-trigger" onclick="location.href='/main.html'"><span class="material-icons">home</span></div>
+
+  <div class="help-box f-sb-m">
+    <div class="help-text">
+      <p class="vb-font1 t-m">Help the Nature</p>
+      <div class="help-info f-sb-m mt30">
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Phone">
+      </div>
+      <div class="help-money f-sb-m mt30">
+        <input type="text" placeholder="Please donate as much as you love nature">
+        <button type="button" class="donation" onclick="javascript:donation()">Donation</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+    function donation(){
+        alert('Thank you for donation!!!');
+        location.reload();
+    }
+
+</script>
+</body>
+</html>

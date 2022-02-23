@@ -1,6 +1,6 @@
 html{overflow: hidden;}
 html, body{width: 100%; height: 100%;}
-body{ font-family: 'Gideon Roman', cursive; }
+body{ font-family: 'Gideon Roman', cursive;  -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none }
 .main-container{ width: 100%; height: 100%; }
 .content{ width: 100%; height: 100%; position: relative; background-color: lightpink; overflow: hidden}
 
@@ -14,25 +14,88 @@ body{ font-family: 'Gideon Roman', cursive; }
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
 
 }
-.mountain{ background-image: url("../img/mountain.jpg");  }
+.mountain{ background-image: url("../img/mountain.jpg"); transition: all .4s; z-index: 1; }
 .lake{ background-image: url("../img/lake.jpg") }
 .island{  background-image: url("../img/island.jpg"); }
 .hawaii{ background-image: url("../img/hawaii.jpg") }
 .desert{ background-image: url("../img/desert.jpg") }
 .winter{ background-image: url("../img/winter.jpg") }
-.content:nth-child(even){background-color: deeppink; overflow: hidden}
 
+@keyframes fadein {
+    0%{
+        opacity: 0;
+        transform: translateX(120px);
+    }
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.text-white { color: white; }
 
 
 .mountain-wrap{ max-width: 1440px; margin: 0 auto; position: relative; }
-.mountain-container{ display: flex; justify-content: center; margin-top: 10%; }
-.mountain-container h1{ font-weight: bolder; font-size: 7em; }
+.content-detail{ margin-top: 11%; font-size: 4em;}
+.content-detail p{ margin-bottom: 20px;}
+.content-detail p:hover { color: royalblue }
+.mountain-container{ display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 10%; }
+.mountain-container h1{ font-weight: 200; font-size: 7em; }
 
-.menu-trigger { float: right; margin-right: 30px; margin-top: 30px;  position: relative; width: 50px; height: 44px; }
-.menu-trigger,
-.menu-trigger span { display: inline-block; transition: all .4s; box-sizing: border-box; }
-.menu-trigger span { left: 0; width: 100%; height: 4px; background-color: #fff; border-radius: 4px; }
 
-.menu-trigger.active-1 span:nth-of-type(1) { -webkit-transform: translateY(13px) rotate(-45deg); transform: translateY(13px) rotate(-45deg); }
-.menu-trigger.active-1 span:nth-of-type(2) { opacity: 0; }
-.menu-trigger.active-1 span:nth-of-type(3) { -webkit-transform: translateY(-20px) rotate(45deg); transform: translateY(-20px) rotate(45deg); }
+.content-wise{ color: white; font-size: 2em; margin-left: 10%; margin-top: 22% }
+.content-ani{ animation: fadein 2s ease; margin-left: 10% }
+
+.mountain-wise{ color: white; font-size: 2em; margin-left: 10%; margin-top: 10%; }
+.mountain-button{ color: white; background: none; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+.mountain-button:hover{ color: green; transition: .5s linear; background: white; border: 2px solid white; cursor: pointer;}
+
+/*.lake-ani{ animation: fadein 2s ease-in-out; margin-left: 10%; }
+.lake-wise{ color: white; font-size: 2em; margin-top: 20%;  }*/
+.lake-button{ color: white; background: none; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+.lake-button:hover{ color: dodgerblue; transition: .5s linear; background: white; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+
+/*.island-wise{ margin-top: 20%; }*/
+.island-button{ color: white; background: none; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+.island-button:hover{ color: mediumspringgreen; transition: .5s linear; background: white; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+
+/*.hawaii-wise{ color: dodgerblue; margin-top: 20%; }*/
+.hawaii-button{ color: dodgerblue; background: none; border: 2px solid dodgerblue; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+.hawaii-button:hover{ color: royalblue; transition: .5s linear; background: white; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+
+/*.desert-wise{ margin-top: 23%; }*/
+.desert-button{ color: white; background: none; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+.desert-button:hover{ color: orangered; transition: .5s linear; background: white; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+
+/*.winter-wise{ margin-top: 20%; }*/
+.winter-button{ color: white; background: none; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+.winter-button:hover{ color: skyblue; transition: .5s linear; background: white; border: 2px solid white; cursor: pointer; font-size: 2em; animation: fadein 2.5s linear; margin-top: 5%; margin-left: 10%; }
+
+
+.content-hidden{ opacity: 0; pointer-events: none; position: absolute; transition: .4s linear; content: ''; width: 100%; height: 100%; background-color: rgb(0,0,0,0.9); top: 0; left: 0; z-index: 1; }
+
+
+/* trigger */
+.content-text{ color: white; pointer-events: auto; transition: .4s linear; opacity: 1; position: absolute; content: ''; left: 0; top: 0; width: 100%; height: 100%}
+.content-hidden a{ margin-bottom: 30px; text-align: center; text-decoration: none; color: white; }
+.content-trigger { float: right; margin-right: 30px; margin-top: 30px;  position: relative; width: 50px; z-index: 2 }
+.content-trigger,
+.content-trigger span { display: inline-block; transition: all .4s linear; box-sizing: border-box; }
+.content-trigger span { left: 0; width: 80%; height: 4px; background-color: #fff; border-radius: 4px; }
+.content-trigger.active span:nth-of-type(1) { -webkit-transform: translateY(13px) rotate(-45deg); transform: translateY(13px) rotate(-45deg); }
+.content-trigger.active span:nth-of-type(2) { opacity: 0; }
+.content-trigger.active span:nth-of-type(3) { -webkit-transform: translateY(-20px) rotate(45deg); transform: translateY(-20px) rotate(45deg); }
+
+.all-container{ width: 100%; height: 100%; background-image: url("../img/help.jpg") }
+.help-box{ max-width: 80%; width: 100%; margin: 0 auto; position: relative; }
+.help-text{ width: 50%; border-radius: 50px; background-color: white; margin: 20% auto 0; padding-top: 50px; padding-bottom: 50px }
+.help-info{ width: 65%; margin: 0 auto; }
+.help-info input{ font-size: 1.2em; width: 40% }
+
+.help-money{ width: 65%; margin: 0 auto; }
+.help-money input{ width: 90%; font-size: 1.3em; border: 2px solid mediumspringgreen }
+.help-money button{ font-size: 1.3em; border: 2px solid mediumspringgreen; cursor: pointer; color: white; background-color: mediumspringgreen;  }
+
+.help-trigger { float: right; margin-right: 30px; margin-top: 30px;  position: relative; width: 50px; z-index: 2 }
+.help-trigger, .help-trigger span { display: inline-block; box-sizing: border-box; }
+.help-trigger span { left: 0; width: 80%; height: 4px; color: white; border-radius: 4px; font-size: 3em; cursor: pointer }
